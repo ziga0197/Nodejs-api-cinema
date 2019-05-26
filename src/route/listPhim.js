@@ -36,53 +36,51 @@ router.get('/list-phim', (req, res) => {
         res.status(404).send('Something went wrong');
     }
 });
-// // UPDATE product
-// router.put('/update-phim/:id', (req, res) => {
-//     console.log(`update-product`);
-//     if (req.body) {
-//         if (req.params.id) {
-//             ProductModel.findByIdAndUpdate({
-//                 _id: req.params.id
-//             }, req.body, {
-//                     new: true
-//                 })
-//                 .then((doc) => {
-//                     res.json(doc);
-//                 })
-//                 .catch((err) => {
-//                     res.status(500).json(err);
-//                 })
-//         } else {
-//             res.status(400).send('Missing id params')
-//         }
-//     } else {
-//         res.status(400).send('Something went wrong')
-//     }
-// })
+// // UPDATE phim
+router.put('/update-phim', (req, res) => {
+    console.log(`update-product`);
+    console.log(req.body._id);
+    if (req.body) {
+        ListPhimModel.findOneAndUpdate({
+            _id: req.body._id
+        }, req.body, {
+                new: true
+            })
+            .then((doc) => {
+                res.json(doc);
+            })
+            .catch((err) => {
+                res.status(500).json(err);
+            })
+
+    } else {
+        res.status(400).send('Something went wrong')
+    }
+})
 // // DETELE
-// router.delete('/delete-product/:id', (req, res) => {
-//     console.log(`delete-product`);
-//     if (req.body) {
-//         if (req.params.id) {
-//             ProductModel.findByIdAndDelete({
-//                 _id: req.params.id
-//             })
-//             .then((doc) => {
-//                 if (doc) {
-//                     res.json(doc);
-//                 }else{
-//                     res.send('Not exist');
-//                 }
-//             })
-//             .catch((err) => {
-//                 res.status(500).json(err);
-//             })
-//         } else {
-//             res.status(400).send('Missing id params')
-//         }
-//     } else {
-//         res.status(400).send('Something went wrong')
-//     }
-// })
+router.delete('/delete-phim/:id', (req, res) => {
+    console.log(`delete-phim`);
+    if (req.body) {
+        if (req.params.id) {
+            ListPhimModel.findOneAndDelete({
+                _id: req.params.id
+            })
+            .then((doc) => {
+                if (doc) {
+                    res.json(doc);
+                }else{
+                    res.send('Not exist');
+                }
+            })
+            .catch((err) => {
+                res.status(500).json(err);
+            })
+        } else {
+            res.status(400).send('Missing id params')
+        }
+    } else {
+        res.status(400).send('Something went wrong')
+    }
+})
 module.exports = router;
 
