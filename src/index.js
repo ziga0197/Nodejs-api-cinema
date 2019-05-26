@@ -1,8 +1,8 @@
 const PORT = '3000';
 const express = require('express');
 const cors = require('cors')
-const productRoute = require('./route/product');
 const listPhimRoute = require('./route/listPhim');
+const userRoute = require('./route/user');
 const detailPhimRoute = require('./route/detailPhim');
 const phongveRoute = require('./route/phongve');
 const path = require('path');
@@ -14,8 +14,9 @@ app.use(cors())
 
 // middelware request
 app.use('/', listPhimRoute);
+app.use('/user', userRoute);
 app.use('/detail', detailPhimRoute);
-app.use('/room', phongveRoute);
+// app.use('/room', phongveRoute);
 
 
 // Handeler for 404
