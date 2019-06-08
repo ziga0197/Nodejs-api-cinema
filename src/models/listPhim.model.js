@@ -14,7 +14,7 @@ const listPhimSchema = new mongoose.Schema({
     LichChieu: [
         {
             GiaVe: Number,
-            MaLichChieu: Number,
+            MaLichChieu: String,
             MaNhom: String,
             MaPhim: Number,
             MaRap: Number,

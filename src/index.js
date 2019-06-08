@@ -16,6 +16,7 @@ app.use(cors())
 app.use('/', listPhimRoute);
 app.use('/user', userRoute);
 app.use('/detail', detailPhimRoute);
+app.use('/room', phongveRoute);
 // app.use('/room', phongveRoute);
 
 
