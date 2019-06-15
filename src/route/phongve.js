@@ -59,7 +59,26 @@ router.get('/:id', (req, res) => {
         res.status(404).send('Something went wrong');
     }
 });
+// // UPDATE phong ve
+router.put('/update-room', (req, res) => {
+    console.log(req.body._id);
+    if (req.body) {
+        PhongVeModel.findOneAndUpdate({
+            _id: req.body._id
+        }, req.body, {
+                new: true
+            })
+            .then((doc) => {
+                res.json(doc);
+            })
+            .catch((err) => {
+                res.status(500).json(err);
+            })
 
+    } else {
+        res.status(400).send('Something went wrong')
+    }
+})
 // // DETELE
 router.delete('/delete-room/:id/:childId', (req, res) => {
     console.log(`delete-phim`);

@@ -5,18 +5,22 @@ const listPhimRoute = require('./route/listPhim');
 const userRoute = require('./route/user');
 const detailPhimRoute = require('./route/detailPhim');
 const phongveRoute = require('./route/phongve');
+const binhluanRoute = require('./route/binhluan');
+const ticketRoute = require('./route/vedat');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 
 // middelware request
 app.use('/', listPhimRoute);
 app.use('/user', userRoute);
 app.use('/detail', detailPhimRoute);
 app.use('/room', phongveRoute);
+app.use('/binhluan', binhluanRoute);
+app.use('/ticket', ticketRoute);
 // app.use('/room', phongveRoute);
 
 
